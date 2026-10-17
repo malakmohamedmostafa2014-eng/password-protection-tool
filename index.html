@@ -1,0 +1,1279 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050b18">
+<title>المبدع | حارس كلمات المرور</title>
+
+<style>
+:root {
+    --bg: #050b18;
+    --panel: #0c162b;
+    --panel2: #101f3a;
+    --blue: #168cff;
+    --cyan: #00e5ff;
+    --text: #eef5ff;
+    --muted: #9aacc8;
+    --border: #203657;
+    --green: #39e58c;
+    --red: #ff5573;
+    --yellow: #ffd166;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(ellipse at top, #102c50 0%, transparent 55%),
+        var(--bg);
+    color: var(--text);
+    font-family: Tahoma, Arial, sans-serif;
+    line-height: 1.8;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(5, 11, 24, 0.96);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    min-height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.logo {
+    display: grid;
+    place-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 14px;
+    color: white;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    box-shadow: 0 0 20px #168cff44;
+}
+
+nav {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--muted);
+    padding: 7px 10px;
+    text-decoration: none;
+    border-radius: 9px;
+}
+
+nav a:hover {
+    color: var(--cyan);
+    background: var(--panel2);
+}
+
+.hero {
+    padding: 55px 0 35px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 28px;
+    align-items: center;
+}
+
+.eyebrow {
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(34px, 5vw, 55px);
+    line-height: 1.3;
+    margin: 12px 0;
+}
+
+h1 span {
+    color: var(--cyan);
+    text-shadow: 0 0 22px #00e5ff30;
+}
+
+p {
+    color: var(--muted);
+}
+
+.hero-card, .card {
+    background: linear-gradient(145deg, var(--panel2), var(--panel));
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 23px;
+}
+
+.hero-card {
+    text-align: center;
+}
+
+.big-shield {
+    font-size: 75px;
+    color: var(--cyan);
+    text-shadow: 0 0 35px #168cff88;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+    margin-top: 20px;
+}
+
+.stat {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 4px;
+}
+
+.stat strong {
+    display: block;
+    color: var(--cyan);
+    font-size: 23px;
+}
+
+.stat small {
+    color: var(--muted);
+}
+
+section {
+    padding: 25px 0 38px;
+    scroll-margin-top: 95px;
+}
+
+.section-title {
+    margin-bottom: 18px;
+}
+
+.section-title h2 {
+    margin-bottom: 0;
+    font-size: 27px;
+}
+
+.section-title p {
+    margin-top: 5px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    font-size: 14px;
+}
+
+.icon {
+    font-size: 34px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 2px #00e5ff17;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    background: var(--panel2);
+    transition: 0.2s;
+}
+
+.btn:hover {
+    border-color: var(--cyan);
+    transform: translateY(-1px);
+}
+
+.primary {
+    color: #04101e;
+    font-weight: bold;
+    background: var(--cyan);
+    border-color: var(--cyan);
+}
+
+.danger {
+    color: #ff9aab;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 12px;
+}
+
+.strength-track, .progress-track {
+    height: 10px;
+    margin: 13px 0;
+    overflow: hidden;
+    background: var(--bg);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+
+#strengthBar, #progressBar {
+    display: block;
+    height: 100%;
+    width: 0;
+    transition: width 0.25s;
+    background: var(--red);
+}
+
+.status {
+    font-weight: bold;
+}
+
+.note {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.result {
+    min-height: 30px;
+    margin-top: 10px;
+    color: var(--cyan);
+    overflow-wrap: anywhere;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 12px 0;
+}
+
+.options label {
+    margin: 0;
+    font-size: 14px;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--cyan);
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+.quiz-option {
+    display: block;
+    width: 100%;
+    text-align: right;
+    margin: 10px 0;
+    padding: 12px;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.quiz-option:hover:not(:disabled) {
+    border-color: var(--cyan);
+}
+
+.quiz-option:disabled {
+    cursor: default;
+    opacity: 0.9;
+}
+
+.feedback {
+    min-height: 30px;
+    font-weight: bold;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.badge {
+    padding: 9px 13px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+}
+
+.badge.earned {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    box-shadow: 0 0 14px #00e5ff12;
+}
+
+.lesson {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.lesson:last-child {
+    border-bottom: 0;
+}
+
+.lesson summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.lesson p {
+    margin-bottom: 0;
+}
+
+.checklist label {
+    margin: 13px 0;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 25px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+footer strong {
+    color: var(--cyan);
+}
+
+@media (max-width: 760px) {
+    .hero, .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 35px;
+    }
+
+    .nav {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <div class="brand">
+            <div class="logo">م</div>
+            <div>
+                المبدع
+                <div class="note">حارس كلمات المرور</div>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#home">الرئيسية</a>
+            <a href="#checker">فحص القوة</a>
+            <a href="#generator">توليد كلمة مرور</a>
+            <a href="#quiz">الاختبار</a>
+            <a href="#learn">التعلّم</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="hero" id="home">
+        <div>
+            <div class="eyebrow">CYBERSECURITY AWARENESS</div>
+
+            <h1>
+                أمّن حساباتك<br>
+                <span>قبل فوات الأوان</span>
+            </h1>
+
+            <p>
+                المبدع منصة توعوية تساعدك على فهم قوة كلمات المرور،
+                وإنشاء كلمات مرور عشوائية آمنة، والتعلّم من خلال
+                اختبارات تفاعلية.
+            </p>
+
+            <div class="actions">
+                <a class="btn primary" href="#checker">ابدأ الفحص</a>
+                <a class="btn" href="#generator">أنشئ كلمة مرور</a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="big-shield">⬡</div>
+            <h2>حمايتك تبدأ بقرار</h2>
+            <p>كلمة مرور فريدة، وتحقّق بخطوتين، ووعي دائم.</p>
+
+            <div class="stats">
+                <div class="stat">
+                    <strong id="points">0</strong>
+                    <small>النقاط</small>
+                </div>
+                <div class="stat">
+                    <strong id="completed">0</strong>
+                    <small>الدروس</small>
+                </div>
+                <div class="stat">
+                    <strong id="earned">0</strong>
+                    <small>الشارات</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password strength checker -->
+    <section id="checker">
+        <div class="section-title">
+            <h2>🔐 فاحص قوة كلمة المرور</h2>
+            <p>تعرّف على خصائص كلمة المرور التي تختبرها.</p>
+        </div>
+
+        <div class="card">
+            <label for="password">كلمة مرور تجريبية</label>
+            <input
+                type="password"
+                id="password"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="اكتب مثالًا غير حقيقي"
+            >
+
+            <div class="actions">
+                <button class="btn" id="togglePassword" type="button">
+                    إظهار المثال
+                </button>
+                <button class="btn" id="clearPassword" type="button">
+                    مسح
+                </button>
+            </div>
+
+            <div class="strength-track">
+                <span id="strengthBar"></span>
+            </div>
+
+            <div class="status" id="strengthText" aria-live="polite">
+                في انتظار المثال...
+            </div>
+
+            <div id="checks" class="note"></div>
+
+            <p class="note">
+                تنبيه: لا تدخلي كلمة مرور حقيقية. الفحص يتم داخل المتصفح
+                ولا يرسل النص إلى أي خادم أو يحفظه.
+            </p>
+        </div>
+    </section>
+
+    <!-- Password generator -->
+    <section id="generator">
+        <div class="section-title">
+            <h2>⚡ مولّد كلمات المرور</h2>
+            <p>أنشئ كلمة مرور عشوائية باستخدام مولّد آمن يدعمه المتصفح.</p>
+        </div>
+
+        <div class="card">
+            <label for="length">طول كلمة المرور</label>
+            <input type="number" id="length" min="12" max="64" value="20">
+
+            <div class="options">
+                <label>
+                    <input type="checkbox" id="lower" checked>
+                    أحرف صغيرة
+                </label>
+
+                <label>
+                    <input type="checkbox" id="upper" checked>
+                    أحرف كبيرة
+                </label>
+
+                <label>
+                    <input type="checkbox" id="numbers" checked>
+                    أرقام
+                </label>
+
+                <label>
+                    <input type="checkbox" id="symbols" checked>
+                    رموز
+                </label>
+            </div>
+
+            <div class="actions">
+                <button class="btn primary" id="generate" type="button">
+                    إنشاء كلمة مرور
+                </button>
+
+                <button class="btn" id="copy" type="button">
+                    نسخ
+                </button>
+            </div>
+
+            <label for="generated">النتيجة</label>
+            <input
+                type="password"
+                id="generated"
+                readonly
+                autocomplete="off"
+                placeholder="ستظهر هنا كلمة المرور الجديدة"
+            >
+
+            <div class="actions">
+                <button class="btn" id="toggleGenerated" type="button">
+                    إظهار / إخفاء
+                </button>
+                <button class="btn danger" id="clearGenerated" type="button">
+                    مسح النتيجة
+                </button>
+            </div>
+
+            <div class="result" id="generatorMessage" aria-live="polite"></div>
+
+            <p class="note">
+                لا تعيدي استخدام كلمة المرور نفسها في أكثر من حساب.
+                عند استخدام النتيجة لحساب حقيقي، احفظيها في مدير كلمات
+                مرور موثوق بدلًا من إرسالها في الرسائل.
+            </p>
+        </div>
+    </section>
+
+    <!-- Security quiz -->
+    <section id="quiz">
+        <div class="section-title">
+            <h2>🎯 تحدّي الأمن السيبراني</h2>
+            <p>أجب عن الأسئلة واجمع النقاط وافتح الشارات.</p>
+        </div>
+
+        <div class="card">
+            <div class="note" id="questionNumber">السؤال 1 من 5</div>
+            <h3 id="questionText"></h3>
+
+            <div id="answers"></div>
+
+            <div class="feedback" id="feedback" aria-live="polite"></div>
+
+            <div class="actions">
+                <button class="btn primary" id="nextQuestion" hidden>
+                    السؤال التالي ←
+                </button>
+
+                <button class="btn" id="restartQuiz" hidden>
+                    إعادة الاختبار
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Badges -->
+    <section id="achievements">
+        <div class="section-title">
+            <h2>🏆 إنجازاتي</h2>
+            <p>تُفتح الشارات خلال جلسة الاستخدام الحالية.</p>
+        </div>
+
+        <div class="badges">
+            <div class="badge" id="badgeFirst">🔐 حارس البداية</div>
+            <div class="badge" id="badgeQuiz">🎯 بطل الاختبار</div>
+            <div class="badge" id="badgePerfect">🌟 خبير الوعي</div>
+            <div class="badge" id="badgeLessons">📚 محبّ التعلّم</div>
+        </div>
+    </section>
+
+    <!-- Lessons -->
+    <section id="learn">
+        <div class="section-title">
+            <h2>📚 تعلّم كيف تحمي حساباتك</h2>
+            <p>دروس قصيرة يمكنك قراءتها وإكمالها.</p>
+        </div>
+
+        <div class="card">
+
+            <div class="lesson">
+                <details>
+                    <summary>الدرس الأول: ما مواصفات كلمة المرور القوية؟</summary>
+                    <p>
+                        اختاري كلمة مرور طويلة وفريدة، وتجنّبي اسمك وتاريخ
+                        ميلادك والكلمات الشائعة. الطول والعشوائية أهم من
+                        مجرد إضافة رمز واحد إلى كلمة متوقعة.
+                    </p>
+                </details>
+                <button class="btn markLesson" data-lesson="1">
+                    إكمال الدرس
+                </button>
+            </div>
+
+            <div class="lesson">
+                <details>
+                    <summary>الدرس الثاني: لماذا لا أكرر كلمة المرور؟</summary>
+                    <p>
+                        إذا تسربت كلمة مرور من موقع، فقد يحاول المهاجمون
+                        استخدامها في مواقع أخرى. استخدمي كلمة مختلفة
+                        لكل حساب مهم.
+                    </p>
+                </details>
+                <button class="btn markLesson" data-lesson="2">
+                    إكمال الدرس
+                </button>
+            </div>
+
+            <div class="lesson">
+                <details>
+                    <summary>الدرس الثالث: التحقّق بخطوتين</summary>
+                    <p>
+                        فعّلي المصادقة متعددة العوامل عندما تكون متاحة.
+                        فهي تضيف خطوة حماية أخرى إذا عُرفت كلمة المرور.
+                        لا تشاركي رموز التحقق مع أحد.
+                    </p>
+                </details>
+                <button class="btn markLesson" data-lesson="3">
+                    إكمال الدرس
+                </button>
+            </div>
+
+            <div class="lesson">
+                <details>
+                    <summary>الدرس الرابع: اكتشاف التصيّد الإلكتروني</summary>
+                    <p>
+                        احذري الرسائل التي تطلب كلمة المرور أو رمز التحقق،
+                        أو تهدد بإغلاق الحساب بسرعة. افتحي الموقع الرسمي
+                        بنفسك بدلًا من الضغط على رابط مشبوه.
+                    </p>
+                </details>
+                <button class="btn markLesson" data-lesson="4">
+                    إكمال الدرس
+                </button>
+            </div>
+
+            <div class="lesson">
+                <details>
+                    <summary>الدرس الخامس: كيف أتعامل مع تسريب محتمل؟</summary>
+                    <p>
+                        غيّري كلمة المرور المتأثرة من الموقع الرسمي،
+                        وغيّري أي كلمة مرور أخرى أُعيد استخدامها،
+                        وأنهي الجلسات غير المعروفة وفعّلي التحقّق بخطوتين.
+                    </p>
+                </details>
+                <button class="btn markLesson" data-lesson="5">
+                    إكمال الدرس
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Safety checklist -->
+    <section id="checklist">
+        <div class="section-title">
+            <h2>✅ قائمة الحماية اليومية</h2>
+            <p>راجعي العادات التالية لتحسين أمان حساباتك.</p>
+        </div>
+
+        <div class="card checklist">
+            <label><input type="checkbox"> أستخدم كلمة مرور مختلفة لكل حساب.</label>
+            <label><input type="checkbox"> فعّلت التحقّق بخطوتين للحسابات المهمة.</label>
+            <label><input type="checkbox"> لا أشارك رموز التحقق مع أحد.</label>
+            <label><input type="checkbox"> أتحقق من الروابط والمرسل قبل الضغط.</label>
+            <label><input type="checkbox"> أحدّث جهازي وتطبيقاتي بانتظام.</label>
+
+            <p id="checklistProgress">أنجزتِ 0 من 5 خطوات.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="card">
+            <h2>🛡️ ميثاق المبدع</h2>
+            <p>
+                نستخدم مهارات الأمن السيبراني للحماية والتعلّم،
+                ونختبر الأنظمة التي نملكها أو لدينا إذن واضح لاختبارها.
+                لا نحاول سرقة كلمات المرور أو الدخول إلى حسابات الآخرين.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <strong>المبدع | حارس كلمات المرور</strong>
+        <p>
+            مشروع تعليمي للتوعية بالأمن السيبراني.
+            فحص القوة تقديري ولا يضمن عدم الاختراق.
+        </p>
+    </div>
+</footer>
+
+<script>
+// جميع البيانات مؤقتة في الذاكرة فقط.
+// لا نستخدم localStorage أو cookies أو أي خادم لحفظ كلمات المرور.
+
+const $ = (id) => document.getElementById(id);
+
+const state = {
+    points: 0,
+    lessons: new Set(),
+    badges: new Set(),
+    questionIndex: 0,
+    quizScore: 0,
+    answered: false
+};
+
+function addPoints(amount) {
+    state.points += amount;
+    updateStats();
+}
+
+function unlockBadge(name, id) {
+    state.badges.add(name);
+    $(id).classList.add("earned");
+    updateStats();
+}
+
+function updateStats() {
+    $("points").textContent = state.points;
+    $("completed").textContent = state.lessons.size;
+    $("earned").textContent = state.badges.size;
+}
+
+function showMessage(id, message, color) {
+    const element = $(id);
+    element.textContent = message;
+
+    if (color) {
+        element.style.color = color;
+    }
+}
+
+// ---------------- PASSWORD STRENGTH ----------------
+
+$("password").addEventListener("input", checkPassword);
+
+function checkPassword() {
+    const password = $("password").value;
+    const bar = $("strengthBar");
+    const text = $("strengthText");
+    const checks = $("checks");
+
+    if (!password) {
+        bar.style.width = "0%";
+        text.textContent = "في انتظار المثال...";
+        text.style.color = "var(--muted)";
+        checks.textContent = "";
+        return;
+    }
+
+    let score = 0;
+    const tips = [];
+
+    if (password.length >= 12) {
+        score++;
+    } else {
+        tips.push("اجعليها 12 حرفًا على الأقل.");
+    }
+
+    if (/[a-z]/.test(password) && /[A-Z]/.test(password)) {
+        score++;
+    } else {
+        tips.push("يمكنك استخدام أحرف كبيرة وصغيرة.");
+    }
+
+    if (/[0-9]/.test(password)) {
+        score++;
+    } else {
+        tips.push("يمكنك إضافة أرقام.");
+    }
+
+    if (/[^A-Za-z0-9]/.test(password)) {
+        score++;
+    } else {
+        tips.push("يمكنك إضافة رموز.");
+    }
+
+    if (/(.)\1{2,}/.test(password)) {
+        score = Math.max(0, score - 1);
+        tips.push("تجنّبي تكرار الحرف نفسه مرات كثيرة.");
+    }
+
+    if (/password|123456|qwerty|admin/i.test(password)) {
+        score = 0;
+        tips.push("تجنّبي الكلمات الشائعة والتسلسلات المعروفة.");
+    }
+
+    const percentage = Math.min(100, score * 25);
+    bar.style.width = percentage + "%";
+
+    if (score <= 1) {
+        bar.style.background = "var(--red)";
+        text.textContent = "القوة التقديرية: ضعيفة";
+        text.style.color = "var(--red)";
+    } else if (score <= 2) {
+        bar.style.background = "var(--yellow)";
+        text.textContent = "القوة التقديرية: متوسطة";
+        text.style.color = "var(--yellow)";
+    } else if (score === 3) {
+        bar.style.background = "var(--blue)";
+        text.textContent = "القوة التقديرية: جيدة";
+        text.style.color = "var(--blue)";
+    } else {
+        bar.style.background = "var(--green)";
+        text.textContent = "القوة التقديرية: أفضل";
+        text.style.color = "var(--green)";
+    }
+
+    checks.textContent = tips.length
+        ? "اقتراحات للتحسين: " + tips.join(" ")
+        : "جيد! راعي أيضًا التفرد وعدم إعادة الاستخدام.";
+
+    if (password.length >= 12 && !state.badges.has("first")) {
+        unlockBadge("first", "badgeFirst");
+    }
+}
+
+$("togglePassword").addEventListener("click", () => {
+    const input = $("password");
+
+    input.type = input.type === "password" ? "text" : "password";
+
+    $("togglePassword").textContent =
+        input.type === "password" ? "إظهار المثال" : "إخفاء المثال";
+});
+
+$("clearPassword").addEventListener("click", () => {
+    $("password").value = "";
+    checkPassword();
+});
+
+// ---------------- SECURE PASSWORD GENERATOR ----------------
+
+// استخدم crypto.getRandomValues، وليس Math.random.
+// rejection sampling يتجنب انحياز modulo عند اختيار الأحرف.
+
+function secureIndex(max) {
+    if (!Number.isSafeInteger(max) || max < 1) {
+        throw new Error("قيمة عشوائية غير صالحة.");
+    }
+
+    const range = 0x100000000;
+    const limit = Math.floor(range / max) * max;
+    const array = new Uint32Array(1);
+
+    do {
+        crypto.getRandomValues(array);
+    } while (array[0] >= limit);
+
+    return array[0] % max;
+}
+
+function secureShuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = secureIndex(i + 1);
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+
+    return array;
+}
+
+function generatePassword() {
+    if (!window.crypto || !crypto.getRandomValues) {
+        showMessage(
+            "generatorMessage",
+            "المتصفح لا يدعم مولّد العشوائية الآمن. افتحي الموقع في متصفح حديث.",
+            "var(--red)"
+        );
+        return;
+    }
+
+    const length = Number($("length").value);
+
+    if (!Number.isInteger(length) || length < 12 || length > 64) {
+        showMessage(
+            "generatorMessage",
+            "اختاري طولًا من 12 إلى 64 حرفًا.",
+            "var(--red)"
+        );
+        return;
+    }
+
+    const groups = [];
+
+    if ($("lower").checked) {
+        groups.push("abcdefghijkmnopqrstuvwxyz");
+    }
+
+    if ($("upper").checked) {
+        groups.push("ABCDEFGHJKLMNPQRSTUVWXYZ");
+    }
+
+    if ($("numbers").checked) {
+        groups.push("23456789");
+    }
+
+    if ($("symbols").checked) {
+        groups.push("!@#$%^&*()-_=+[]{}?");
+    }
+
+    if (groups.length === 0) {
+        showMessage(
+            "generatorMessage",
+            "اختاري نوعًا واحدًا من الأحرف على الأقل.",
+            "var(--red)"
+        );
+        return;
+    }
+
+    if (length < groups.length) {
+        showMessage(
+            "generatorMessage",
+            "زودي الطول حتى يتسع لنوع واحد من كل مجموعة اخترتيها.",
+            "var(--red)"
+        );
+        return;
+    }
+
+    const allCharacters = groups.join("");
+    const result = [];
+
+    // ضمان وجود حرف واحد على الأقل من كل مجموعة مختارة.
+    for (const group of groups) {
+        result.push(group[secureIndex(group.length)]);
+    }
+
+    while (result.length < length) {
+        result.push(
+            allCharacters[secureIndex(allCharacters.length)]
+        );
+    }
+
+    secureShuffle(result);
+
+    // عرض النتيجة في الحقل فقط، دون حفظها في التخزين الدائم.
+    $("generated").value = result.join("");
+    $("generated").type = "password";
+
+    showMessage(
+        "generatorMessage",
+        "تم إنشاء كلمة مرور عشوائية آمنة محليًا. انسخيها إلى مدير كلمات مرور موثوق.",
+        "var(--green)"
+    );
+
+    if (!state.badges.has("first")) {
+        unlockBadge("first", "badgeFirst");
+    }
+}
+
+$("generate").addEventListener("click", generatePassword);
+
+$("toggleGenerated").addEventListener("click", () => {
+    const input = $("generated");
+    input.type = input.type === "password" ? "text" : "password";
+});
+
+$("clearGenerated").addEventListener("click", () => {
+    $("generated").value = "";
+    showMessage("generatorMessage", "تم مسح النتيجة من الصفحة.");
+});
+
+$("copy").addEventListener("click", async () => {
+    const password = $("generated").value;
+
+    if (!password) {
+        showMessage("generatorMessage", "أنشئي كلمة مرور أولًا.");
+        return;
+    }
+
+    try {
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(password);
+        } else {
+            const input = $("generated");
+            const oldType = input.type;
+
+            input.type = "text";
+            input.select();
+
+            const success = document.execCommand("copy");
+            input.setSelectionRange(0, 0);
+            input.type = oldType;
+
+            if (!success) {
+                throw new Error("تعذر النسخ");
+            }
+        }
+
+        showMessage(
+            "generatorMessage",
+            "تم النسخ. تذكّري أن الحافظة قد تحتفظ بنسخة مؤقتة.",
+            "var(--green)"
+        );
+    } catch {
+        showMessage(
+            "generatorMessage",
+            "تعذر النسخ تلقائيًا. أظهري النتيجة وانسخيها يدويًا.",
+            "var(--yellow)"
+        );
+    }
+});
+
+// ---------------- QUIZ ----------------
+
+const questions = [
+    {
+        question: "ما أفضل طريقة للتعامل مع كلمة المرور؟",
+        answers: [
+            "استخدام كلمة واحدة لكل الحسابات",
+            "استخدام كلمة طويلة وفريدة لكل حساب",
+            "إرسالها لصديق لحفظها"
+        ],
+        correct: 1,
+        explanation: "صحيح! كلمة مرور فريدة تقلل أثر تسريب أي حساب."
+    },
+    {
+        question: "ماذا تفعل إذا طلبت رسالة مفاجئة رمز التحقق؟",
+        answers: [
+            "أرسله فورًا",
+            "أنشره في مجموعة",
+            "لا أشاركه وأتحقق من الجهة عبر الموقع الرسمي"
+        ],
+        correct: 2,
+        explanation: "أحسنت! لا تشاركي رموز التحقق مع أحد."
+    },
+    {
+        question: "ما فائدة المصادقة متعددة العوامل؟",
+        answers: [
+            "إضافة طبقة حماية أخرى",
+            "جعل كل كلمات المرور متشابهة",
+            "إيقاف التحديثات"
+        ],
+        correct: 0,
+        explanation: "صحيح! تضيف خطوة تحقق أخرى بجانب كلمة المرور."
+    },
+    {
+        question: "ما التصرف الأفضل مع رابط مجهول في رسالة مستعجلة؟",
+        answers: [
+            "الضغط عليه بسرعة",
+            "التحقق من الرسالة والموقع من مصدر رسمي",
+            "إدخال كلمة المرور لاختبار الرابط"
+        ],
+        correct: 1,
+        explanation: "ممتاز! التحقق قبل الضغط يقلل مخاطر التصيد."
+    },
+    {
+        question: "أين يجب اختبار كلمات المرور؟",
+        answers: [
+            "في مواقع مجهولة تطلب كلمات مرور حقيقية",
+            "بإرسالها لشخص آخر",
+            "باستخدام أمثلة تجريبية وأدوات موثوقة محلية"
+        ],
+        correct: 2,
+        explanation: "صحيح! لا تدخلي كلمات مرورك الحقيقية في أدوات غير موثوقة."
+    }
+];
+
+function renderQuestion() {
+    const q = questions[state.questionIndex];
+
+    $("questionNumber").textContent =
+        "السؤال " + (state.questionIndex + 1) +
+        " من " + questions.length;
+
+    $("questionText").textContent = q.question;
+    $("answers").innerHTML = "";
+    $("feedback").textContent = "";
+    $("nextQuestion").hidden = true;
+    $("restartQuiz").hidden = true;
+    state.answered = false;
+
+    q.answers.forEach((answer, index) => {
+        const button = document.createElement("button");
+
+        button.className = "quiz-option";
+        button.textContent = answer;
+        button.addEventListener("click", () => chooseAnswer(index));
+
+        $("answers").appendChild(button);
+    });
+}
+
+function chooseAnswer(index) {
+    if (state.answered) return;
+
+    state.answered = true;
+
+    const q = questions[state.questionIndex];
+    const buttons = $("answers").querySelectorAll("button");
+
+    buttons.forEach((button, i) => {
+        button.disabled = true;
+
+        if (i === q.correct) {
+            button.style.borderColor = "var(--green)";
+        }
+    });
+
+    if (index === q.correct) {
+        state.quizScore++;
+        addPoints(10);
+
+        showMessage("feedback", q.explanation, "var(--green)");
+    } else {
+        showMessage(
+            "feedback",
+            "الإجابة الصحيحة: " + q.answers[q.correct],
+            "var(--yellow)"
+        );
+    }
+
+    if (!state.badges.has("quiz")) {
+        unlockBadge("quiz", "badgeQuiz");
+    }
+
+    if (state.questionIndex < questions.length - 1) {
+        $("nextQuestion").hidden = false;
+    } else {
+        finishQuiz();
+    }
+}
+
+function finishQuiz() {
+    $("nextQuestion").hidden = true;
+    $("restartQuiz").hidden = false;
+
+    const score = state.quizScore;
+
+    if (score === questions.length) {
+        unlockBadge("perfect", "badgePerfect");
+        showMessage(
+            "feedback",
+            "رائع! أجبت عن كل الأسئلة بشكل صحيح. نتيجتك " +
+            score + " من " + questions.length + ".",
+            "var(--green)"
+        );
+    } else {
+        showMessage(
+            "feedback",
+            "انتهى الاختبار! نتيجتك " + score +
+            " من " + questions.length +
+            ". يمكنك إعادة الاختبار للتعلّم أكثر.",
+            "var(--cyan)"
+        );
+    }
+}
+
+$("nextQuestion").addEventListener("click", () => {
+    state.questionIndex++;
+    renderQuestion();
+});
+
+$("restartQuiz").addEventListener("click", () => {
+    state.questionIndex = 0;
+    state.quizScore = 0;
+    renderQuestion();
+});
+
+// ---------------- LESSONS AND CHECKLIST ----------------
+
+document.querySelectorAll(".markLesson").forEach(button => {
+    button.addEventListener("click", () => {
+        const lesson = button.dataset.lesson;
+
+        if (state.lessons.has(lesson)) {
+            return;
+        }
+
+        state.lessons.add(lesson);
+        button.textContent = "تم إكمال الدرس ✓";
+        button.disabled = true;
+
+        addPoints(5);
+
+        if (state.lessons.size === 5) {
+            unlockBadge("lessons", "badgeLessons");
+        }
+    });
+});
+
+document.querySelectorAll("#checklist input").forEach(input => {
+    input.addEventListener("change", () => {
+        const total = document.querySelectorAll(
+            "#checklist input"
+        ).length;
+
+        const done = document.querySelectorAll(
+            "#checklist input:checked"
+        ).length;
+
+        $("checklistProgress").textContent =
+            "أنجزتِ " + done + " من " + total + " خطوات.";
+    });
+});
+
+renderQuestion();
+updateStats();
+</script>
+
+</body>
+</html>
